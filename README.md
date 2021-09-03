@@ -8,6 +8,12 @@ To get your code in morse code, call
 ```swift
 MorseEngine().Encode("Your code here")
 ```
+Make sure you put your code in a method that looks like this.
+```js
+function main() {
+  //Your code here
+}
+```
 
 To evaluate your code, use 
 ```swift
