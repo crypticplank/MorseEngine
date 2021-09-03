@@ -1,6 +1,6 @@
 # MorseEngine
 
-A morse code encoder and deconder with bultin javascript eval for morse code. 
+A morse code encoder and decoder with bultin javascript eval for morse code. 
 
 # JavaScript Eval with morse
 
