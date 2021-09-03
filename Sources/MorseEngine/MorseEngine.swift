@@ -1,5 +1,6 @@
 import CoreData
 import JavaScriptCore
+import JavaScriptEval
 
 public struct MorseEngine {
     
@@ -100,6 +101,7 @@ public struct MorseEngine {
         "}": "--.--.--",
         "<": ".-.-.--.",
         ">": ".-.-.--..",
+        "^": "--....-.-",
         "\n": "...---..-...-",
         " ": "/",
     ]
@@ -148,27 +150,8 @@ public struct MorseEngine {
     
     public func evalJavaScriptMorse(_ morse: String) -> Any {
         let source = Decode(morse)
-        let context = JSContext()
-        context?.evaluateScript(source)
-        // For testing
-        let testSwiftMethod: @convention(block) (Int) -> () = { int in
-            print("Running swift method in JS")
-            for i in 0...int {
-                print(i, terminator: "")
-            }
-        }
-        context?.setObject(testSwiftMethod, forKeyedSubscript: "swiftMethod" as NSString)
-        // Implement print in javascript
-        let javaScriptPrint: @convention(block) (Any, String?) -> () = { item, terminator in
-            if terminator! == "undefined" {
-                return print(item, terminator: "\n")
-            }
-            return print(item, terminator: terminator ?? "\n")
-        }
-        context?.setObject(javaScriptPrint, forKeyedSubscript: "print" as NSString)
-        let mainFunction = context?.objectForKeyedSubscript("main")
-        let result = mainFunction?.call(withArguments: nil)
-        return result! as Any
+        let Eval = JavaScriptEval.self
+        return Eval.Eval(source)
     }
     
     public func evalMathMorse(_ morse: String) -> Float {

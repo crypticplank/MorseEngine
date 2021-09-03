@@ -9,6 +9,15 @@
           "revision": "6f5bd1281216200dfb96998836fcb35ef7cd024e",
           "version": null
         }
+      },
+      {
+        "package": "JavaScriptEval",
+        "repositoryURL": "https://github.com/brandonplank/JavaScriptEval",
+        "state": {
+          "branch": "main",
+          "revision": "76977e40bcbb06827f9abfc96b409f1d4bb38e8f",
+          "version": null
+        }
       }
     ]
   },
